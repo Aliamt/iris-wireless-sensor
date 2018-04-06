@@ -81,11 +81,7 @@ implementation{
 		} 
 	} 
 	event void ReadLuminosity.readDone(error_t error, uint16_t sample) { 
-		// Check whether the measurement was done successfully. If it was not, make the sample 
-		// equal to the highest possible number it can take on and report the problem using the 
-		// function report_problem(). If it was, store the measurement in the corresponding 
-		
-		// location. 
+
 		if (error == SUCCESS) { 
 			mydata.samples[currentsamplenum]=sample;
 		} 
