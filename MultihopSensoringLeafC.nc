@@ -45,8 +45,6 @@ implementation{
 	event void Boot.booted(){
 		myconfig.samplingperiod = DEFAULT_PERIOD;
 		mydata.nodeid = TOS_NODE_ID;
-		//mydata.tamara = DEFAULT_PERIOD*10;
-	//	myconfig.samplingperiod=tamara;
 		if (call RadioControl.start() != SUCCESS){
 			report_problem();
 		}
