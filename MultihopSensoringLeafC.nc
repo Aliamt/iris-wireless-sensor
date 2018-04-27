@@ -20,15 +20,12 @@ implementation{
 	mydataformat_t mydata;
 	uint8_t currentsamplenum;
 	myconfigformat_t myconfig;
-		
 	void report_problem() {
 		call Leds.led2Toggle();
 	}
-	
 	void report_transmission() {
 		call Leds.led0Toggle();
 	}
-	
 	void report_reception() {
 		call Leds.led1Toggle();
 	}	
@@ -37,8 +34,7 @@ implementation{
 			report_problem();
 		}
 		else {
-			memcpy(call RadioSend.getPayload(&mymessage, sizeof(mydata)),&mydata, sizeof(mydata));
-					
+			memcpy(call RadioSend.getPayload(&mymessage, sizeof(mydata)),&mydata, sizeof(mydata));		
 			if (call RadioSend.send(&mymessage, sizeof(mydata)) == SUCCESS) {
 				busy = TRUE;
 			}
