@@ -76,17 +76,12 @@ implementation{
 	
 	
 	event void RadioControl.stopDone(error_t error){}
-	
-	
-	
 	event void Timer.fired() {
 		if (currentsamplenum < NUMSAMPLES) {
 			if (call ReadLuminosity.read() != SUCCESS);{
 				report_problem();
 			}
-
 		}
-	
 		else {
 			if (!busy) {
 				post sendpacket();
@@ -94,8 +89,6 @@ implementation{
 			currentsamplenum = 0;
 		}
 	}
-	
-	
 	
 	event void ReadLuminosity.readDone(error_t error, uint16_t sample) {
 		if (error != SUCCESS){
@@ -106,8 +99,6 @@ implementation{
 		currentsamplenum++;
 	}
 	
-	
-	
 		event void RadioSend.sendDone(message_t * txmessage, error_t error) {
 			if (error != SUCCESS) {
 			report_problem();
@@ -117,16 +108,11 @@ implementation{
 			}
 		busy = FALSE;
 	}
-	
-	
-
 		event void RadioReceive.changed() {
 			myconfigformat_t * newconfigptr = call RadioReceive.get();
 			report_reception();
 			
-			mydata.samplingperiod = newconfigptr->samplingperiod;
-			
-			
+			mydata.samplingperiod = newconfigptr->samplingperiod;		
 		    call Timer.startPeriodic(mydata.samplingperiod);
 			}		
 }
