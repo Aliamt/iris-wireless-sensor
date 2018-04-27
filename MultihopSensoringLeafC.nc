@@ -88,8 +88,7 @@ implementation{
 			}
 			currentsamplenum = 0;
 		}
-	}
-	
+	}	
 	event void ReadLuminosity.readDone(error_t error, uint16_t sample) {
 		if (error != SUCCESS){
 			sample = 0xffff;
@@ -98,7 +97,6 @@ implementation{
 		mydata.samples[currentsamplenum] = sample,
 		currentsamplenum++;
 	}
-	
 		event void RadioSend.sendDone(message_t * txmessage, error_t error) {
 			if (error != SUCCESS) {
 			report_problem();
@@ -110,8 +108,7 @@ implementation{
 	}
 		event void RadioReceive.changed() {
 			myconfigformat_t * newconfigptr = call RadioReceive.get();
-			report_reception();
-			
+			report_reception();	
 			mydata.samplingperiod = newconfigptr->samplingperiod;		
 		    call Timer.startPeriodic(mydata.samplingperiod);
 			}		
