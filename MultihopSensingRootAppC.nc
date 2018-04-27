@@ -14,7 +14,6 @@ implementation{
 		CollectionC as RadioReceiver,
 		LedsC,
 		new TimerMilliC() as Timer;
-	
 	MultihopSensingRootC.Boot -> MainC;
 	MultihopSensingRootC.SerialControl -> SerialActiveMessageC;
 	MultihopSensingRootC.SerialSend -> SerialSender;
@@ -26,6 +25,5 @@ implementation{
 	MultihopSensingRootC.RadioSend -> RadioSender;
 	MultihopSensingRootC.RadioReceive -> RadioReceiver.Receive[DATA_TYPE];
 	MultihopSensingRootC.Timer -> Timer;
-	MultihopSensingRootC.Leds -> LedsC;
-	
+	MultihopSensingRootC.Leds -> LedsC;	
 }
