@@ -15,7 +15,7 @@ typedef nx_struct mydataformat {
 
 typedef nx_struct myconfigformat {
 		nx_uint16_t samplingperiod;
-		nx_uint16_t tamara;
+
 } myconfigformat_t;
 
 #endif /* MULTIHOP_SENSORING_LEAF_H */
