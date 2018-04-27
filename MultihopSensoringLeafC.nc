@@ -20,8 +20,7 @@ implementation{
 	mydataformat_t mydata;
 	uint8_t currentsamplenum;
 	myconfigformat_t myconfig;
-	
-	
+		
 	void report_problem() {
 		call Leds.led2Toggle();
 	}
@@ -32,10 +31,7 @@ implementation{
 	
 	void report_reception() {
 		call Leds.led1Toggle();
-	}
-	
-	
-	
+	}	
 	task void sendpacket() {
 		if (sizeof(mydata) > call RadioSend.maxPayloadLength()) {
 			report_problem();
