@@ -15,22 +15,17 @@ module MultihopSensingRootC{
 		interface RootControl;
 	}
 }
-implementation{
-	
+implementation{	
 	message_t mymessage;
 	bool busy;
 	myconfigformat_t myconfig;
-
-
 //LED Displays
 	void report_problem() {
 		call Leds.led2Toggle();
 	}
-	
 	void report_transmission() {
 		call Leds.led0Toggle();
 	}
-	
 	void report_reception() {
 		call Leds.led1Toggle();
 	}
