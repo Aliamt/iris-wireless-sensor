@@ -92,7 +92,6 @@ implementation{
 		report_reception();
 		return msg;
 	}
-	
 //Serial Send Done
 	event void SerialSend.sendDone(message_t * msg, error_t error) {
 			if ((error != SUCCESS) || msg != &mymessage) {
@@ -101,10 +100,8 @@ implementation{
 		busy = FALSE;
 	}
 }
-	
 //Serial Receive
-	event message_t* SerialReceive.receive(message_t* msg, void* payload, uint8_t len) {
-		
+	event message_t* SerialReceive.receive(message_t* msg, void* payload, uint8_t len) {	
 		return msg;
 	}
 	
